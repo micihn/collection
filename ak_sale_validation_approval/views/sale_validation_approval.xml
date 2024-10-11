@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="sale_validation_approval" model="ir.ui.view">
+		<field name="name">sale.validation.approval.view.custom</field>
+		<field name="model">sale.order</field>
+		<field name="inherit_id" ref="sale.view_order_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//form/header/button[@name='action_cancel']" position="before">
+				<button name="approve" type="object" string="Approve" attrs="{'invisible': [('state', '!=', 'approve')]}" class="btn btn-primary"/>
+			</xpath>
+			<xpath expr="//form/header/field[@name='state']" position="attributes">
+				<attribute name="state">statusbar_visible="approve"</attribute>
+			</xpath>
+			<xpath expr="//form/header/button[@name='action_cancel']" position='attributes'>
+				<attribute name="attrs">{'invisible': ['|', ('state', 'not in', ['draft', 'sent', 'sale']), ('id', '=', False), ('state', '!=', 'approve')]}</attribute>
+			</xpath>
+		</field>
+	</record>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<record id="view_order_tree_buttons" model="ir.ui.view">
+  <field name="name">sale.order.tree.inherit.sale.buttons</field>
+  <field name="model">sale.order</field>
+  <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+  <field name="arch" type="xml">
+    <field name="state" position="after">
+      <button string="Confirm"
+              name="action_confirm"
+              type="object"
+              icon="fa-check"
+              states="draft,sent" />
+      <button string="Cancel"
+              name="action_cancel"
+              type="object"
+              icon="fa-times"
+              states="draft,sent" />
+    </field>
+  </field>
+</record>
+</odoo>

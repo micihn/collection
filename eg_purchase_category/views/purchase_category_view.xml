@@ -1,0 +1,18 @@
+<odoo>
+     <record id="purchase_category_tree_view" model="ir.ui.view">
+        <field name="name">purchase.category.tree.views</field>
+        <field name="model">purchase.category</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+     <record id="action_purchase_category" model="ir.actions.act_window">
+        <field name="name">Purchase Category</field>
+        <field name="res_model">purchase.category</field>
+        <field name="view_mode">tree</field>
+    </record>
+    <menuitem parent="purchase.menu_purchase_config" id="menu_purchase_category" name="Purchase Category" action="action_purchase_category" groups="purchase.group_purchase_manager"/>
+</odoo>
